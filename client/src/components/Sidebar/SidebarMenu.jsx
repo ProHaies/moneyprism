@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import {AnimatePresence, motion} from "framer-motion/dist/framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 
 const menuAnimation = {
   hidden: {
