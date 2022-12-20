@@ -21,10 +21,7 @@ const routes = [
     name: "Login or Register",
     icon: <FaUser />,
   },
-  {path: '/form',
-   name: 'Create a funding post',
-   icon: <AiOutlinePlus/>,
-  },
+
   {
     path: "/messages",
     name: "Messages",
