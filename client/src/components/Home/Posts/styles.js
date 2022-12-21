@@ -4,8 +4,8 @@ export default makeStyles((theme) => ({
   mainContainer: {
     display: 'flex',
     alignItems: 'center',
-    background:"white",
-    width:"800px"
+    width:"100%"
+    
   },
   smMargin: {
     margin: theme.spacing(1),

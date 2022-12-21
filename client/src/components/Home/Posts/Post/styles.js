@@ -17,37 +17,48 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '15px',
     height: '100%',
     position: 'relative',
-    width:'200px'
+    width:'200px',
+    borderRadius:'0',
+    border:'1px solid white',
+    color:'black',
+    background: "white",
+   
   },
   overlay: {
     position: 'absolute',
     top: '20px',
     left: '20px',
-    color: 'white',
+    color:'white'
   },
   overlay2: {
     position: 'absolute',
     top: '20px',
     right: '20px',
-    color: 'white',
+
+       color:'tan'
   },
   grid: {
-    display: 'flex',
+    color:'white'
   },
   details: {
     display: 'flex',
     justifyContent: 'space-between',
     margin: '20px',
+    color:'black'
   },
   title: {
     padding: '0 16px',
+    color:'black'
   },
   cardActions: {
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+   color:'white',
   },
+  buttons: {
+    border:'1px solid black'
+  }
 });
