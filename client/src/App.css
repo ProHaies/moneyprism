@@ -46,9 +46,13 @@
   .logo {
     font-size: 18px;
     line-height: 0;
+    cursor: pointer;
   }
   .bars {
     width: 30px;
+  }
+  .bar {
+    cursor: pointer;
   }
   .hide {
     display: none;

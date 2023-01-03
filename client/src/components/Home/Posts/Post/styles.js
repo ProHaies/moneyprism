@@ -58,7 +58,4 @@ export default makeStyles({
     justifyContent: 'space-between',
    color:'white',
   },
-  buttons: {
-    border:'1px solid black'
-  }
 });

@@ -2,14 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
+import {  BiSearch } from "react-icons/bi";
 import {  } from "react-icons/bi";
 import { AiFillHeart,} from "react-icons/ai";
-import { BsCartCheck } from "react-icons/bs";
-import {AiOutlinePlus} from 'react-icons/ai'
 import { useState } from "react";
 import {AnimatePresence, motion} from 'framer-motion'
 import SidebarMenu from "./SidebarMenu";
+import { useNavigate } from "react-router-dom";
 const routes = [
   {
     path: "/",
@@ -21,7 +20,11 @@ const routes = [
     name: "Login or Register",
     icon: <FaUser />,
   },
-
+  {
+    path: "/user",
+    name: "User",
+    icon: <FaUser />,
+  },
   {
     path: "/messages",
     name: "Messages",
@@ -37,6 +40,11 @@ const routes = [
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
+  const user = null;
+  const logo = () => {
+    navigate("/")
+  }
   const inputAnimation = {
     hidden: {
       width: 0,
@@ -96,6 +104,7 @@ const SideBar = ({ children }) => {
                   animate="show"
                   exit="hidden"
                   className="logo"
+                  onClick={logo}
                 >
                   MoneyPrism
                 </motion.h1>
@@ -103,7 +112,7 @@ const SideBar = ({ children }) => {
             </AnimatePresence>
 
             <div className="bars">
-              <FaBars onClick={toggle} />
+              <FaBars className="bar" onClick={toggle} />
             </div>
           </div>
           <div className="search">
