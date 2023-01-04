@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Posts from '../Posts/Posts';
 import { getPosts } from '../../../actions/posts';
 import useStyles from './styles';
+import AuthenticationButton from '../Authentication/AuthenticationButton';
 const Home = () => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
@@ -25,7 +26,9 @@ const Home = () => {
           </Grid>
         </Container>
       </Grow>
+      <AuthenticationButton/>
     </Container>
+
   );
 };
 export default Home

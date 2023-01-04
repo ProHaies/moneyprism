@@ -9,39 +9,30 @@ import { useState } from "react";
 import {AnimatePresence, motion} from 'framer-motion'
 import SidebarMenu from "./SidebarMenu";
 import { useNavigate } from "react-router-dom";
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    icon: <FaHome />,
-  },
-  {
-    path: "/auth",
-    name: "Login or Register",
-    icon: <FaUser />,
-  },
-  {
-    path: "/user",
-    name: "User",
-    icon: <FaUser />,
-  },
-  {
-    path: "/messages",
-    name: "Messages",
-    icon: <MdMessage />,
-  },
-  {
-    path: "/saved",
-    name: "Saved",
-    icon: <AiFillHeart />,
-  },
-];
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
-  const user = null;
+ 
+  const routes = [
+    {
+      path: "/",
+      name: "Home",
+      icon: <FaHome />,
+    },
+  
+    {
+      path: "/messages",
+      name: "Messages",
+      icon: <MdMessage />,
+    },
+    {
+      path: "/saved",
+      name: "Saved",
+      icon: <AiFillHeart />,
+    },
+  ];
   const logo = () => {
     navigate("/")
   }
@@ -166,7 +157,7 @@ const SideBar = ({ children }) => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </NavLink>
+                </NavLink>               
               );
             })}
           </section>
