@@ -1,11 +1,10 @@
 import React from 'react'
 import useStyles from './styles';
-import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import "./Auth.css";
+import { Avatar, Button } from '@material-ui/core';
+import { Link} from 'react-router-dom';
 const AuthenticationButton = () => {
   const classes = useStyles()
-    const user = 1;
+    const user = null;
   return (
     <div className={classes.main}>
       

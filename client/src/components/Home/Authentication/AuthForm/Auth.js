@@ -11,7 +11,7 @@ const Auth = () => {
   const handleShowPassword = () => setShowPassword(!showPassword);
   const switchMode = () => {
    
-    setIsSignup((prevIsSignup) => !prevIsSignup);
+    setIsSignup(!isSignup);
   
   };
   const handleSubmit = () => {
@@ -41,7 +41,7 @@ const Auth = () => {
             { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
           </Grid>
           <Button type='submit' fullWidth variant='contained' color='primary'className={classes.submit}> { isSignup ? 'Sign Up' : 'Sign In' }</Button>
-          <Grid container justify="flex-end">
+          <Grid container justifyContent="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
                 { isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up" }
