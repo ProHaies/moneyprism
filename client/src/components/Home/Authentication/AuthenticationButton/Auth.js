@@ -72,7 +72,7 @@ const googleError = (error) => {
             clientId="968045220354-tifpe8pasu8snm8rf0g440bodb0q78po.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon="" variant="contained">
-                Google Sign In
+                Google Sign in
               </Button>
             )}
             onSuccess={googleSuccess}
