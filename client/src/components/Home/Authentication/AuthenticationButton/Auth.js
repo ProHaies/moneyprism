@@ -6,7 +6,9 @@ import Input from './Input';
 import { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const Auth = () => {
+  const navigate = useNavigate();
   const classes = useStyles(); 
   const dispatch = useDispatch();
   const [isSignup, setIsSignup] = useState(false);
@@ -26,6 +28,14 @@ const Auth = () => {
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
     const token = res?.tokenId;
+
+    try {
+      dispatch({ type: "AUTH", data: { result, token } });
+
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   } 
 const googleError = (error) => {
  alert('Google Sign In was unsuccessful. Try again later')
