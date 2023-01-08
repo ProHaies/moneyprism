@@ -7,22 +7,29 @@ import { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+
 const Auth = () => {
   const navigate = useNavigate();
   const classes = useStyles(); 
   const dispatch = useDispatch();
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
+  const [form, setForm] = useState(initialState);
+
   const handleShowPassword = () => setShowPassword(!showPassword);
   const switchMode = () => {
    
     setIsSignup(!isSignup);
   
   };
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+console.log(form)
   }
-  const handleChange = () => {
+  const handleChange = (e) => {
+   setForm({ ...form, [e.target.name]: e.target.value });
 
   }
   const googleSuccess = async (res) => {
