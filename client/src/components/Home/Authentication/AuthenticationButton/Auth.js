@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import { signin, signup } from '../../../../actions/auth';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
@@ -26,7 +26,11 @@ const Auth = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-console.log(form)
+    if (isSignup) {
+      dispatch(signup(form, navigate));
+    } else {
+      dispatch(signin(form, navigate));
+    }  
   }
   const handleChange = (e) => {
    setForm({ ...form, [e.target.name]: e.target.value });
