@@ -59,7 +59,7 @@ if (!active) {
         <TextField size="small" className={classes.inputs} name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button size="small" className={classes.buttonSubmit} variant="contained" color="primary"  type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>ClEar</Button>
+        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
       </form>
     </Card>
   ); 
