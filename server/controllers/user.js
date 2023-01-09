@@ -17,7 +17,7 @@ export const signin = async (req, res) => {
 
     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
 
-    const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
+    const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, "test", { expiresIn: "1h" });
 
     res.status(200).json({ result: oldUser, token });
   } catch (err) {
@@ -26,12 +26,15 @@ export const signin = async (req, res) => {
 };
 
 export const signup = async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, confirmPassword, firstName, lastName } = req.body;
 
   try {
     const oldUser = await UserModal.findOne({ email });
 
     if (oldUser) return res.status(400).json({ message: "User already exists" });
+
+
+    if(password !== confirmPassword)  return res.status(400).json({ message: "Passwords dont match" });
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
