@@ -52,7 +52,7 @@ const Post = ({ post, setCurrentId }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
       <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
-          <Likes />
+          <Likes className={classes.likes} />
         </Button>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
         <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>

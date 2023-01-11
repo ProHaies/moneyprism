@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome, FaUser } from "react-icons/fa";
+import { FaBars, FaHome } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import {  BiSearch } from "react-icons/bi";
 import {  } from "react-icons/bi";

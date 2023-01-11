@@ -42,10 +42,10 @@ export default makeStyles((theme) => ({
  purple: {
    backgroundColor:'black',
    color:'white',
-   position:"fixed",
    marginLeft:'330px',
-   border:'1px solid white'  
- },
+   border:'1px solid white',
+   position:"fixed"
+   },
  logout: {
    height:"40px",
    position:"fixed",
