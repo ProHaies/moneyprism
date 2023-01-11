@@ -13,6 +13,7 @@
     "axios": "^0.19.2",
     "framer-motion": "^6.5.1",
     "gapi-script": "^1.2.0",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.27.0",
     "mongoose": "^6.8.3",
     "react": "^16.14.0",
