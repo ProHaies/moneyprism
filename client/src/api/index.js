@@ -18,3 +18,4 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const signIn = (form) => API.post('/user/signin', form);
 export const signUp = (form) => API.post('/user/signup', form);
+export const fetchPostsBySearch = (searchQuery) => API.get(`/posts/search?searchQuery=${searchQuery.search || 'none'}&tags=${searchQuery.tags}`);

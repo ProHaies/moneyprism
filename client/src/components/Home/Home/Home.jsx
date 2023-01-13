@@ -5,7 +5,7 @@ import ChipInput from 'material-ui-chip-input';
 
 import { useDispatch } from 'react-redux';
 import Posts from '../Posts/Posts';
-import { getPosts } from '../../../actions/posts';
+import { getPosts,getPostsBySearch } from '../../../actions/posts';
 import useStyles from './styles';
 import AuthenticationButton from '../Authentication/AuthenticationButton';
 import Paginate from '../../Pagination';
@@ -35,7 +35,8 @@ const Home = () => {
   const handleAddChip = (tag) => setTags([...tags, tag]);
   const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
   const searchPost = () => {
-    if (search.trim()){//dispatch - fetch searched posts
+    if (search.trim()){
+      //dispatch - fetch searched posts
     } else {
       navigate('/')
     }
