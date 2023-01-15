@@ -24,9 +24,7 @@ const Home = () => {
   const searchQuery = query.get('searchQuery');
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState([]);
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
+
   const handleKeyPress = (e) => {
         if (e.keyCode === 13) {
      searchPost();
@@ -65,11 +63,14 @@ const Home = () => {
                 label="Search Tags"
                 variant="outlined"
               />
+              {}
               <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
             </AppBar>
-      <Paper className={classes.pagination} elevation={6}>
-    <Paginate/>
-      </Paper>
+            {(!searchQuery && !tags.length) && (
+              <Paper className={classes.pagination} elevation={6}>
+                <Paginate page={page} />
+              </Paper>
+            )}
         </Container>
       </Grow>
       <AuthenticationButton/>

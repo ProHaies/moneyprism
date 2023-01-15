@@ -17,7 +17,7 @@ const SideBar = ({ children }) => {
  
   const routes = [
     {
-      path: "/posts",
+      path:'/',
       name: "Home",
       icon: <FaHome />,
     },
