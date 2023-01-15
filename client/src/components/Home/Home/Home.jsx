@@ -5,7 +5,7 @@ import ChipInput from 'material-ui-chip-input';
 
 import { useDispatch } from 'react-redux';
 import Posts from '../Posts/Posts';
-import { getPosts,getPostsBySearch } from '../../../actions/posts';
+import { getPosts, getPostsBySearch } from '../../../actions/posts';
 import useStyles from './styles';
 import AuthenticationButton from '../Authentication/AuthenticationButton';
 import Paginate from '../../Pagination';
@@ -34,13 +34,18 @@ const Home = () => {
   }
   const handleAddChip = (tag) => setTags([...tags, tag]);
   const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
+
+
   const searchPost = () => {
-    if (search.trim()){
-      //dispatch - fetch searched posts
-    } else {
+    if (search.trim() || tags) {
+      dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
+      navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+     } else {
       navigate('/')
     }
   }
+
+  
   return (
     <Container className={classes.main}>
       
@@ -52,8 +57,7 @@ const Home = () => {
             </Grid>
           </Grid>
           <AppBar className={classes.appBarSearch} position="static" color="inherit">
-              <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Funds" fullWidth value="" onChange={(e) => setSearch(e.target.value)} />
-              <ChipInput
+          <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Memories" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />              <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
                 onAdd={handleAddChip}
