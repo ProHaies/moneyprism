@@ -17,7 +17,11 @@ const { post, posts, isLoading } = useSelector((state) => state.posts);
   useEffect(() => {
     dispatch(getPost(id));
   }, [id]);
-
+  useEffect(() => {
+    if (post) {
+      dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
+    }
+  }, [post]);
   if (!post) return null;
   return (
     <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
