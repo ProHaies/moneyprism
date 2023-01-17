@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({  title: '', message: '', tags: '', selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
+  const post = useSelector((state) => (currentId ? state.posts.post.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
   const [active, setActive] = useState(false)
@@ -28,7 +28,8 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
      setActive(false)
     if (currentId === 0) {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));  
+      dispatch(createPost({ ...postData, name: user?.result?.name }, navigate));  
+
           clear();
     } else {
       dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));   
