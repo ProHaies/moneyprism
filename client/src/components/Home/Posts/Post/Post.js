@@ -6,11 +6,12 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
-
+import { useNavigate } from 'react-router-dom';
 import { likePost, deletePost } from '../../../../actions/posts';
 import useStyles from './styles';
 
 const Post = ({ post, setCurrentId }) => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -28,9 +29,18 @@ const Post = ({ post, setCurrentId }) => {
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
   };
 
+  const openPost = (e) => {
+    // dispatch(getPost(post._id, history));
+
+    navigate(`/posts/${post._id}`);
+  };
+
 
   return (
     <Card className={classes.card} raised elevation={6}>
+  
+  
+  <div onClick={openPost} className={classes.cardActions}>
       <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
@@ -50,6 +60,7 @@ const Post = ({ post, setCurrentId }) => {
       <CardContent>
         <Typography variant="body2" color="white" component="p">{post.message}</Typography>
       </CardContent>
+      </div>
       <CardActions className={classes.cardActions}>
       <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
           <Likes className={classes.likes} />
