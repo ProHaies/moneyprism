@@ -7,12 +7,16 @@ import useStyles from './styles';
 
 const CommentSection = ({post}) => {
     const classes = useStyles()
-    const [comments, setComments] = useState([1,2,3,4]);  
+    const [comments, setComments] = useState(post?.comments);  
     const [comment, setComment] = useState(" ")
     const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch()
+    const commentsRef = useRef();
     const handleComment =  async() => {
         const newComments = await dispatch(commentPost(`${user?.result?.name}: ${comment}`, post._id));
+        setComment('');
+        setComments(newComments);
+        commentsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     return (
     <div>
@@ -21,10 +25,10 @@ const CommentSection = ({post}) => {
         <Typography gutterBottom variant="h6">Comments</Typography>
         {comments?.map((c, i) => (
           <Typography key={i} gutterBottom variant="subtitle1">
-
+             {c}
           </Typography>
         ))}
-
+<div ref={commentsRef} />
       </div>
       {user?.result?.name && (
       <div style={{ width: '70%' }}>
