@@ -50,4 +50,16 @@ export default makeStyles((theme) => ({
     overflowY: 'auto',
     marginRight: '30px',
   },
+  pedail:{
+    color:"white",
+  },
+  paper: {
+     marginLeft:"360px",
+     padding: '20px', 
+     borderRadius: '15px' ,
+     [theme.breakpoints.down('sm')]: {
+      marginLeft: '40px',
+    },
+  },
+
 }));

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Paper, Typography,  Divider } from '@material-ui/core/';
+import { Paper, Typography,  Divider, Box } from '@material-ui/core/';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment'
 import { useParams, useNavigate } from 'react-router-dom';
-
+import CircularProgress from '@material-ui/core/';
 import CommentSection from './CommentSection';
 import { getPost, getPostsBySearch } from '../../actions/posts';
 import useStyles from './styles'
@@ -17,7 +17,10 @@ const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPost(id));
+
   }, [id]);
+
+
   useEffect(() => {
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
@@ -26,10 +29,16 @@ const dispatch = useDispatch();
   }, [post]);
   const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
 
-  const openPost = (_id) => navigate*(`/posts/${_id}`);
+  const openPost = (_id) => navigate(`/posts/${_id}`);
   if (!post) return null;
+  if (isLoading) {
+    return (
+        <h1 className={classes.pedail}>its loading </h1>
+    );
+  }
   return (
-    <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
+
+    <Paper className={classes.paper} elevation={6}>
     <div className={classes.card}>
       <div className={classes.section}>
         <Typography variant="h3" component="h2">{post.title}</Typography>
@@ -67,6 +76,7 @@ const dispatch = useDispatch();
         </div>
       )}
   </Paper>
+
 );
   
 }

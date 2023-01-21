@@ -9,6 +9,7 @@ import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 import { useNavigate } from 'react-router-dom';
 import { likePost, deletePost } from '../../../../actions/posts';
 import useStyles from './styles';
+import { getPost } from '../../../../actions/posts';
 
 const Post = ({ post, setCurrentId }) => {
   const navigate = useNavigate()
@@ -43,9 +44,9 @@ const Post = ({ post, setCurrentId }) => {
   };
 
   const openPost = (e) => {
-    // dispatch(getPost(post._id, history));
-
+    dispatch(getPost(post._id));
     navigate(`/posts/${post._id}`);
+    window.location.reload(false);
   };
 
 
@@ -78,7 +79,7 @@ const Post = ({ post, setCurrentId }) => {
       <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
           <Likes className={classes.likes} />
         </Button>
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+        {userId === post?.creator && (
         <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize="small" /> Delete
         </Button>
