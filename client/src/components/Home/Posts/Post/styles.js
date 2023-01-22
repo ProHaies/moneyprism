@@ -20,7 +20,7 @@ export default makeStyles({
     height: '100%',
     position: 'relative',
     width:'200px',
-    borderRadius:'0',
+    borderRadius:'4px',
     border:'1px solid white',
     color:'black',
     background: "white",

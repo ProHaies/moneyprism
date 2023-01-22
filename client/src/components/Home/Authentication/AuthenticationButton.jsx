@@ -23,6 +23,8 @@ const AuthenticationButton = () => {
     navigate('/auth');
 
     setUser(null);
+    window.location.reload(false);
+
   };
   useEffect(() => {
     const token = user?.token;
@@ -34,6 +36,8 @@ const AuthenticationButton = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
+    
+   
   }, [location]);
   return (
     <div className={classes.main}>
