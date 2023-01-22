@@ -11,6 +11,7 @@ import { signin, signup } from '../../../../actions/auth';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
+  
   const navigate = useNavigate();
   const classes = useStyles(); 
   const dispatch = useDispatch();
@@ -76,7 +77,7 @@ const googleError = (error) => {
             clientId="968045220354-tifpe8pasu8snm8rf0g440bodb0q78po.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon="" variant="contained">
-                Google Sig In
+                Google Sign In
               </Button>
             )}
             onSuccess={googleSuccess}
