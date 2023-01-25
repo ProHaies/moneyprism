@@ -29,7 +29,6 @@ function App() {
           <Route path="/posts/search" element={<Home/>}/>
           <Route path="/posts/addPost" element={<Home/>}/>
           <Route path="/posts/:id" element={<PostDetails/>}  />
-          <Route path="/posts/:id" element={<Navigate to='/posts/:id'/>}  />
           <Route path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)}/>
         </Routes>
         </SideBar>

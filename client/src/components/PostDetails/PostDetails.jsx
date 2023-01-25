@@ -16,6 +16,7 @@ const dispatch = useDispatch();
   const { id } = useParams();
 
   useEffect(() => {
+
     dispatch(getPost(id));
 
   }, [id]);
