@@ -8,6 +8,8 @@ export const getPost = (id) => async (dispatch) => {
     const { data } = await api.fetchPost(id);
 
     dispatch({ type: FETCH_POST, payload: { post: data } });
+    dispatch({ type: END_LOADING });
+
   } catch (error) {
     console.log(error);
   }
@@ -30,6 +32,8 @@ export const createPost = (post, navigate) => async (dispatch) => {
 
     dispatch({ type: CREATE, payload: data });
     navigate(`/posts/${data._id}`);
+
+
   } catch (error) {
     console.log(error.message);
   }
