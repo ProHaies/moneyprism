@@ -29,6 +29,8 @@ const Form = ({ currentId, setCurrentId }) => {
      setActive(false)
     if (currentId === 0) {
       dispatch(createPost({ ...postData, name: user?.result?.name }, navigate));  
+      window.location.reload(false);
+
 
           clear();
     } else {

@@ -6,6 +6,7 @@ import SideBar from "./components/Sidebar/Sidebar";
 import Auth from "./components/Home/Authentication/AuthenticationButton/Auth";
 import { gapi } from "gapi-script";
 import PostDetails from "./components/PostDetails/PostDetails";
+import { useState } from "react";
 function App() {
   const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -16,13 +17,17 @@ function App() {
       plugin_name: "chat",
     });
   });
+  const [currentId, setCurrentId] = useState(0);
+
   return (
+    
     <Router>
  <SideBar>
         <Routes>
           <Route path="/" element={<Navigate to="/posts" />} />
-          <Route path="/posts" element={<Home/>}/>
+          <Route path="/posts" element={<Home currentId={currentId} setCurrentId={setCurrentId}/>}/>
           <Route path="/posts/search" element={<Home/>}/>
+          <Route path="/posts/addPost" element={<Home/>}/>
           <Route path="/posts/:id" element={<PostDetails/>}  />
           <Route path="/posts/:id" element={<Navigate to='/posts/:id'/>}  />
           <Route path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)}/>

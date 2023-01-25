@@ -9,7 +9,7 @@ import { useState } from "react";
 import {AnimatePresence, motion} from 'framer-motion'
 import SidebarMenu from "./SidebarMenu";
 import { useNavigate } from "react-router-dom";
-
+import { FaPlusCircle } from "react-icons/fa";
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -21,7 +21,11 @@ const SideBar = ({ children }) => {
       name: "Home",
       icon: <FaHome />,
     },
-  
+    {
+      path:'/posts/addPost',
+      name: "Add A Fund",
+      icon: <FaPlusCircle />,
+    },
     {
       path: "/messages",
       name: "Messages",
