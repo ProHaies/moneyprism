@@ -12,10 +12,12 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     position: 'relative',
     width:"1000px",
-    height:'270px',
-    marginLeft:'300px',
+    height:'430px',
+    marginLeft:'430px',
+    marginTop:"140px",
     borderRadius:'0',
     border:'1px solid white',
+    backgroundColor:"black"
   },
 
   form: {
@@ -28,7 +30,8 @@ export default makeStyles((theme) => ({
     width: '97%',
     margin: '10px 0',
     height:'15px',
-    marginTop:'9px',
+    marginTop:'20px',
+    marginBottom:"20px",
     borderRadius:'0px'
   },
   buttonSubmit: {
@@ -36,24 +39,17 @@ export default makeStyles((theme) => ({
     borderRadius:'0px'
   },
   inputs: {
-    height:'28px'
+    height:'48px',
+    backgroundColor:"white"
+
   },
-  cardPlus: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    position: 'relative',
-    width:'200px',
-    height:'308px',
-    marginLeft:'7px',
-    fontSize:"50px",
-    background:"white",
-    color:"black",
-    borderRadius:'0',
-    border:'1px solid white'
-  },
+
 formButton: { 
   height:"100%"
-}
-  
+},
+  buttonSubmit:{
+    height:"60px",
+    marginTop:"10px",
+    border:"1px solid white"
+  }
 }));
