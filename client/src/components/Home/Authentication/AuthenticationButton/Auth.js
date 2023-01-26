@@ -7,8 +7,10 @@ import { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signin, signup } from '../../../../actions/auth';
+import * as api from '../../../../api';
+import { AUTH } from '../../../../constants/actionTypes';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+
 
 const Auth = () => {
   
@@ -18,6 +20,7 @@ const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
   const [form, setForm] = useState(initialState);
+  const [isValid, setIsValid] = useState("")
 
   const handleShowPassword = () => setShowPassword(!showPassword);
   const switchMode = () => {
@@ -25,13 +28,44 @@ const Auth = () => {
     setIsSignup(!isSignup);
   
   };
-  const handleSubmit = (e) => {
+
+   const signin = (form, navigate) => async (dispatch) => {
+    try {
+      const { data } = await api.signIn(form);
+
+      dispatch({ type: AUTH, data });
+  
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+      setIsValid("Incorrect username or password")
+    }
+  };
+   const signup = (form, navigate) => async (dispatch) => {
+    try {
+      const { data } = await api.signUp(form);
+
+      dispatch({ type: AUTH, data });
+  
+      navigate('/');
+    } catch (error) {
+      setIsValid("Incorrect credentials")
+    }
+  };
+
+
+  const handleSubmit = (e,error) => {
     e.preventDefault();
     if (isSignup) {
       dispatch(signup(form, navigate));
-    } else {
+    } else  {
       dispatch(signin(form, navigate));
-    }  
+    } 
+
+    if (error) {
+      setIsValid("Google Sign In was unsuccessful. Try again later")
+
+    }
   }
   const handleChange = (e) => {
    setForm({ ...form, [e.target.name]: e.target.value });
@@ -50,8 +84,8 @@ const Auth = () => {
     }
   } 
 const googleError = (error) => {
- alert('Google Sign In was unsuccessful. Try again later')
  console.log(error)
+ setIsValid("Google Sign In was unsuccessful. Try again later")
 }
   return (
     <Container component="main" maxWidth="xs">
@@ -60,6 +94,7 @@ const googleError = (error) => {
           <LockOutlinedIcon/>
         </Avatar>
         <Typography variant='h5'>{ isSignup ? 'Sign up' : 'Sign in' }</Typography>
+        <Typography className={classes.invalid}>{isValid}</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             { isSignup && (
@@ -69,7 +104,7 @@ const googleError = (error) => {
             </>
             )}
             <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
-            <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
+            <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? 'password' : 'text'} handleShowPassword={handleShowPassword} />
             { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
           </Grid>
           <Button type='submit' fullWidth variant='contained' color='primary'className={classes.submit}> { isSignup ? 'Sign Up' : 'Sign In' }</Button>
