@@ -81,6 +81,7 @@ const Post = ({ post, setCurrentId }) => {
         <Button     onClick={(e) => {
               e.preventDefault();
               setCurrentId(post._id);
+              navigate("/posts/addPost")
             }} style={{ color: 'red', zIndex:"1" }} size="small">
         <MoreHorizIcon fontSize="small" />  &nbsp; Edit
         </Button>

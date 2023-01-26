@@ -17,7 +17,8 @@ export default makeStyles((theme) => ({
     marginTop:"140px",
     borderRadius:'0',
     border:'1px solid white',
-    backgroundColor:"black"
+    backgroundColor:"black",
+    color:"white"
   },
 
   form: {
@@ -32,7 +33,8 @@ export default makeStyles((theme) => ({
     height:'15px',
     marginTop:'20px',
     marginBottom:"20px",
-    borderRadius:'0px'
+    borderRadius:'0px',
+    color:"white"
   },
   buttonSubmit: {
     marginBottom: 5,
