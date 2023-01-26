@@ -43,7 +43,7 @@ const AddPost = ({ currentId, setCurrentId }) => {
       <Paper className={classes.card}>
         <Button className={classes.formButton} onClick={() => navigate("/auth")}>
         <Typography variant="h6" align="center">
-          Please Sign In to create your own memories and like other's memories.
+          Please sign In to create your own memories and like other's memories.
         </Typography>
         </Button>
       </Paper>
