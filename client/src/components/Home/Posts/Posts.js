@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import Post from './Post/Post';
 import useStyles from './styles';
-import Form from '../Form/Form';
 const Posts = ({ setCurrentId,currentId }) => {
   const {posts , isLoading} = useSelector((state) => state.posts);
   const classes = useStyles();
@@ -18,7 +17,6 @@ const Posts = ({ setCurrentId,currentId }) => {
            
           </Grid>
         ))}
-         <Form currentId={currentId} setCurrentId={setCurrentId} />
       </Grid>
     )
   );

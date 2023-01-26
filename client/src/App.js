@@ -7,6 +7,7 @@ import Auth from "./components/Home/Authentication/AuthenticationButton/Auth";
 import { gapi } from "gapi-script";
 import PostDetails from "./components/PostDetails/PostDetails";
 import { useState } from "react";
+import AddPost from "./components/addPost/AddPost";
 function App() {
   const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -27,7 +28,7 @@ function App() {
           <Route path="/" element={<Navigate to="/posts" />} />
           <Route path="/posts" element={<Home currentId={currentId} setCurrentId={setCurrentId}/>}/>
           <Route path="/posts/search" element={<Home/>}/>
-          <Route path="/posts/addPost" element={<Home/>}/>
+          <Route path="/posts/addPost" element={<AddPost currentId={currentId} setCurrentId={setCurrentId}/>}/>
           <Route path="/posts/:id" element={<PostDetails/>}  />
           <Route path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)}/>
         </Routes>
