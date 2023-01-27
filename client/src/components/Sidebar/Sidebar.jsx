@@ -10,10 +10,15 @@ import {AnimatePresence, motion} from 'framer-motion'
 import SidebarMenu from "./SidebarMenu";
 import { useNavigate } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
+import { Avatar } from "@material-ui/core";
+import useStyles from './styles';
+
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const classes = useStyles()
  
   const routes = [
     {
@@ -110,23 +115,7 @@ const SideBar = ({ children }) => {
               <FaBars className="bar" onClick={toggle} />
             </div>
           </div>
-          <div className="search">
-            <div className="search_icon">
-              <BiSearch />
-            </div>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.input
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  variants={inputAnimation}
-                  type="text"
-                  placeholder="Search"
-                />
-              )}
-            </AnimatePresence>
-          </div>
+         {user? (<Avatar className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>) :(<button>123</button>) }
           <section className="routes">
             {routes.map((route, index) => {
               if (route.subRoutes) {

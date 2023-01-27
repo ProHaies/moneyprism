@@ -40,7 +40,7 @@ const AddPost = ({ currentId, setCurrentId }) => {
   
   if (!user?.result?.name) {
     return (
-      <Paper className={classes.card}>
+      <Paper className={classes.cardPlus}>
         <Button className={classes.formButton} onClick={() => navigate("/auth")}>
         <Typography variant="h6" align="center">
           Please Sign In to create your own memories and like other's memories.

@@ -20,6 +20,20 @@ export default makeStyles((theme) => ({
     backgroundColor:"black",
     color:"white"
   },
+  cardPlus : {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    position: 'relative',
+    width:"1000px",
+    height:'430px',
+    marginLeft:'430px',
+    marginTop:"140px",
+    borderRadius:'0',
+    border:'1px solid white',
+    backgroundColor:"white",
+    color:"white"
+  },
 
   form: {
     display: 'flex',

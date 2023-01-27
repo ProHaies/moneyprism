@@ -6,7 +6,8 @@ export default makeStyles((theme) => ({
     display:'flex',
     flexDirection:'row',
     padding:'0px',
-    height:'1000px'
+    height:'1000px',
+    marginTop:"20px"
  },
  appBar: {
    borderRadius: 15,
@@ -33,30 +34,32 @@ export default makeStyles((theme) => ({
    display: 'flex',
    justifyContent: 'space-between',
    width: '400px',
+   position:"fixed"
  },
 
  brandContainer: {
    display: 'flex',
    alignItems: 'center',
+   position:"fixed"
  },
  purple: {
    backgroundColor:'black',
    color:'white',
-   marginLeft:'330px',
+   marginLeft:'220px',
    border:'1px solid white',
    position:"fixed"
    },
  logout: {
    height:"40px",
    position:"fixed",
-   marginLeft:'390px',
+   marginLeft:'280px',
    border:'1px solid white',
-   backgroundColor:"black"
+   backgroundColor:"black",
  },
  button:{
    height:'40px',
    position:"fixed",
-   marginLeft:'280px',
+   marginLeft:'220px',
    border:'1px solid white',
    backgroundColor:"black"
  }
