@@ -11,15 +11,19 @@ import SidebarMenu from "./SidebarMenu";
 import { useNavigate } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
 import { Avatar } from "@material-ui/core";
-import useStyles from './styles';
-
+import {Button} from "@material-ui/core";
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  const classes = useStyles()
- 
+
+ const loginRegister = () => {
+  navigate("/auth")
+  window.location.reload(false);
+
+ }
+
   const routes = [
     {
       path:'/',
@@ -54,7 +58,7 @@ const SideBar = ({ children }) => {
       },
     },
     show: {
-      width: "140px",
+      width: "300px",
       padding: "5px 15px",
       transition: {
         duration: 0.2,
@@ -75,6 +79,7 @@ const SideBar = ({ children }) => {
       width: "auto",
       transition: {
         duration: 0.5,
+
       },
     },
   };
@@ -115,7 +120,10 @@ const SideBar = ({ children }) => {
               <FaBars className="bar" onClick={toggle} />
             </div>
           </div>
-         {user? (<Avatar className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>) :(<button>123</button>) }
+         {user? 
+         (<Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>)
+          :
+          (<div onClick={loginRegister} style={{display:"flex", cursor:"pointer"}}><Avatar className="inputAnimation" style={{marginLeft:"1px"}} alt="No user - Login or Register" src=""></Avatar> <h1 style={{fontSize:"12px", marginLeft:"20px",marginTop:"15px"}}> Login or Register </h1> </div> )}
           <section className="routes">
             {routes.map((route, index) => {
               if (route.subRoutes) {
