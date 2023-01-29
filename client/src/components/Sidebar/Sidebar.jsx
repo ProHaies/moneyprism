@@ -2,8 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHome } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
-import {  BiSearch } from "react-icons/bi";
-import {  } from "react-icons/bi";
 import { AiFillHeart,} from "react-icons/ai";
 import { useState } from "react";
 import {AnimatePresence, motion} from 'framer-motion'
@@ -11,12 +9,13 @@ import SidebarMenu from "./SidebarMenu";
 import { useNavigate } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
 import { Avatar } from "@material-ui/core";
-import {Button} from "@material-ui/core";
+import { GiArtificialHive } from "react-icons/gi";
+
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const user  = JSON.parse(localStorage.getItem('profile'));
 
  const loginRegister = () => {
   navigate("/auth")
@@ -32,8 +31,13 @@ const SideBar = ({ children }) => {
     },
     {
       path:'/posts/addPost',
-      name: "Add A Fund",
+      name: "Add A Post",
       icon: <FaPlusCircle />,
+    },
+    {
+      path:'/posts/generate',
+      name: "AI Image Generator",
+      icon: <GiArtificialHive />,
     },
     {
       path: "/messages",

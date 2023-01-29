@@ -23,7 +23,7 @@ color:"white"
  },
  appBarSearch: {
    borderRadius: 4,
-marginBottom:"80px",
+marginBottom:"40px",
    display: 'block',
    padding: '5px',
    width:"873px",

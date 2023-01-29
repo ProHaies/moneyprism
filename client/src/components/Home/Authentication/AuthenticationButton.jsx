@@ -11,7 +11,6 @@ import decode from 'jwt-decode';
 
 
 const AuthenticationButton = () => {
-  const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const classes = useStyles()
@@ -38,7 +37,7 @@ const AuthenticationButton = () => {
     setUser(JSON.parse(localStorage.getItem('profile')));
     
    
-  }, [location]);
+  }, []);
   return (
     <div className={classes.main}>
       

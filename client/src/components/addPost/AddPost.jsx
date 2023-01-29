@@ -54,7 +54,7 @@ const AddPost = ({ currentId, setCurrentId }) => {
   
     <Card className={classes.card}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography className={classes.heading} variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography>
+        <Typography className={classes.heading} variant="h6">{currentId ? `Editing "${post.title}"` : 'Create a Post'}</Typography>
         <TextField size="small" className={classes.inputs} name="title" variant="filled" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField size="small" className={classes.inputs} name="message" variant="filled" label="Message" fullWidth multiline  value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
         <TextField size="small" className={classes.inputs} name="tags" variant="filled" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />

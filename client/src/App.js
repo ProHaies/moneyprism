@@ -8,6 +8,7 @@ import { gapi } from "gapi-script";
 import PostDetails from "./components/PostDetails/PostDetails";
 import { useState } from "react";
 import AddPost from "./components/addPost/AddPost";
+import ImageGenerator from "./components/ImageGenerator/ImageGenerator";
 function App() {
   const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/posts/search" element={<Home/>}/>
           <Route path="/posts/addPost" element={<AddPost currentId={currentId} setCurrentId={setCurrentId}/>}/>
           <Route path="/posts/:id" element={<PostDetails/>}  />
+          <Route path="/posts/generate" element={<ImageGenerator/>}  />
           <Route path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)}/>
         </Routes>
         </SideBar>
