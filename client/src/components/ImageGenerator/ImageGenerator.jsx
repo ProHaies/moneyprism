@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getRandomPrompt } from '../../utils';
 import FormField from './FormField';
 import Loader from './Loader';
+import { preview } from '../../assets';
 
 const ImageGenerator = () => {
   const [generatingImg, setGeneratingImg] = useState(false);
@@ -82,7 +83,7 @@ const ImageGenerator = () => {
               />
             ) : (
               <img
-                src="12"
+                src={preview}
                 alt="preview"
                 className="w-9/12 h-9/12 object-contain opacity-40"
               />
