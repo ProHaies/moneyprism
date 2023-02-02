@@ -47,7 +47,8 @@ export default makeStyles((theme) => ({
    color:'white',
    marginLeft:'220px',
    border:'1px solid white',
-   position:"fixed"
+   position:"fixed",
+   cursor:"pointer"
    },
  logout: {
    height:"40px",

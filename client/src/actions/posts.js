@@ -1,6 +1,7 @@
 import {COMMENT, FETCH_POST, FETCH_BY_SEARCH, FETCH_ALL,START_LOADING, END_LOADING, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
+
 export const getPost = (id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

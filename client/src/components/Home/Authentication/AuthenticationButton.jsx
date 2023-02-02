@@ -25,7 +25,10 @@ const AuthenticationButton = () => {
     window.location.reload(false);
 
   };
-  useEffect(() => {
+  const userDetails = () => {
+ navigate("/user")
+  }
+   useEffect(() => {
     const token = user?.token;
 
     if (token) {
@@ -43,7 +46,7 @@ const AuthenticationButton = () => {
       
       {user ? (
           <div className={classes.profile}>
-            <Avatar className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
+            <Avatar onClick={userDetails} className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </div>
         ) : (

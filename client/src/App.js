@@ -9,6 +9,7 @@ import PostDetails from "./components/PostDetails/PostDetails";
 import { useState } from "react";
 import AddPost from "./components/addPost/AddPost";
 import ImageGenerator from "./components/ImageGenerator/ImageGenerator";
+import UserDetails from "./components/userDetails/UserDetails";
 function App() {
   const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/posts/:id" element={<PostDetails/>}  />
           <Route path="/posts/generate" element={<ImageGenerator/>}  />
           <Route path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)}/>
+          <Route path="/user" element={(user ? <UserDetails /> : <Navigate to="/posts" />)}/>
         </Routes>
         </SideBar>
     </Router>

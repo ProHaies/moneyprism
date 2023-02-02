@@ -22,6 +22,9 @@ const SideBar = ({ children }) => {
   window.location.reload(false);
 
  }
+ const userDetails = () => {
+  navigate('/user')
+ }
 
   const routes = [
     {
@@ -125,7 +128,7 @@ const SideBar = ({ children }) => {
             </div>
           </div>
          {user? 
-         (<div style={{display:"flex"}}><Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar><h1 style={{fontSize:"20px", marginTop:"9px", marginLeft:"10px"}}>{user?.result.name}</h1></div>)
+         (<div onClick={userDetails} style={{display:"flex", cursor:"pointer"}}><Avatar  alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar><h1 style={{fontSize:"20px", marginTop:"9px", marginLeft:"10px"}}>{user?.result.name}</h1></div>)
           :
           (<div onClick={loginRegister} style={{display:"flex", cursor:"pointer"}}><Avatar className="inputAnimation" style={{marginLeft:"1px"}} alt="No user - Login or Register" src=""></Avatar> <h1 style={{fontSize:"12px", marginLeft:"20px",marginTop:"15px"}}> Login or Register </h1> </div> )}
           <section className="routes">
