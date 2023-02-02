@@ -34,7 +34,7 @@ function App() {
           <Route path="/posts/:id" element={<PostDetails/>}  />
           <Route path="/posts/generate" element={<ImageGenerator/>}  />
           <Route path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)}/>
-          <Route path="/user" element={(user ? <UserDetails /> : <Navigate to="/posts" />)}/>
+          <Route path="/user" element={(!user ? <UserDetails /> : <Navigate to="/user" />)}/>
         </Routes>
         </SideBar>
     </Router>
