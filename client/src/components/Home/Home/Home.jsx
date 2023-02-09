@@ -51,7 +51,7 @@ const Home = ({ setCurrentId,currentId }) => {
         <Container>
         <AppBar className={classes.appBarSearch} position="static" color="inherit">
           <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Memories" className={classes.textfield}  value={search} onChange={(e) => setSearch(e.target.value)} />     
-          <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
+          <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">SEarch</Button>
                 <ChipInput
                 className={classes.tags}
                 value={tags}
